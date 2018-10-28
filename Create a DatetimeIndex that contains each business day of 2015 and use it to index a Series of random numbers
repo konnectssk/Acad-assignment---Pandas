@@ -1,0 +1,13 @@
+import random
+import datetime
+import calendar
+from pandas.tseries.offsets import BDay
+import pandas as pd
+
+date_slot = pd.date_range(start='2015-01-01', end='2015-12-31', freq='B') # defining start and end date
+
+s = pd.Series(np.random.rand(len(date_slot)), index=date_slot) # indexing series of random numbers
+
+print ("\n 2. Create a DatetimeIndex that contains each business day of 2015 and use it to index a Series of random numbers.\n",'-'*115, sep='')
+
+print(s)
