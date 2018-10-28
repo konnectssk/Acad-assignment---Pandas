@@ -1,0 +1,16 @@
+
+
+import random
+import datetime
+import calendar
+from pandas.tseries.offsets import BDay
+import pandas as pd
+import numpy as np
+
+date_slot = pd.date_range(start='2015-01-01', end='2015-12-31', freq='B') # defining start and end date
+
+s = pd.Series(np.random.rand(len(date_slot)), index=date_slot) # indexing series of random numbers
+
+wednesday_sum = s.loc[s.index.weekday==2].sum() 
+
+print (wednesday_sum)
