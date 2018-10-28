@@ -1,0 +1,17 @@
+# Import pandas
+import pandas as pd
+
+# Input values
+input = {'X':[7,2,0,3,4,2,5,0,3,4,0,4,5]}
+
+# Input dataframe creation ("X")
+df = pd.DataFrame((input))
+
+# Output dataframe - check with Zero return to "Y"
+df["Y"] = (df.X.groupby(df.X.eq(0).cumsum().mask(df.X.eq(0))).cumcount() + 1).mask(df.X.eq(0), 0).tolist()
+
+# Printing out put
+print ("Desired Out put Values")
+print ("----"*10)
+print ("Output dataframe:-\n",df)
+print ("----"*10)
