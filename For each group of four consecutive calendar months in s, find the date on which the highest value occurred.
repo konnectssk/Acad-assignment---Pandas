@@ -1,0 +1,7 @@
+import pandas as pd
+import numpy as np
+
+DateTimeIndex=pd.date_range(start='2015-01-01',end='2015-12-31',freq='B')
+s=pd.Series(np.random.rand(len(DateTimeIndex)),index=DateTimeIndex)
+highest=s.groupby(pd.TimeGrouper('4M')).idxmax()
+print("For group of 4 consecutive months, the date on which highest value occurred is:\n%s"%highest)
