@@ -1,0 +1,7 @@
+import pandas as pd
+import numpy as np
+
+DateTimeIndex=pd.date_range(start='2015-01-01',end='2015-12-31',freq='B')
+s=pd.Series(np.random.rand(len(DateTimeIndex)),index=DateTimeIndex)
+avg=s.resample('M').mean()
+print("average for every calendar month is : \n%s"%avg)
